@@ -38,7 +38,7 @@ $("#frmLogin").submit(function(e){
                 }else{
                     //si esta activado el switch
                     if (document.getElementById("check").checked ==true) {
-                        console.log("Essta Activo");
+                        console.log("Esta Activo");
                         $("#passmodal").modal();
                         //Clic al boton actualizar contraseña
                         $("#actualizar").on("click",function (){
@@ -46,7 +46,7 @@ $("#frmLogin").submit(function(e){
                             var contra     = $("#nuevacontra1").val();
                             var id=dataArray.result.id_usuario;
                             $.ajax({
-                                url:"../mLogin/cambiar_contraseña.php",
+                                url:"../mLogin/actualizar.php",
                                 type:"POST",
                                 dateType:"html",
                                 data:{id,contra},
@@ -133,7 +133,7 @@ function Autopass(numero) {
     $("#nuevacontra1").val(contraseña);
     $("#nuevacontra2").val(contraseña);
     validarpass();
-    swal("Su nueva contraseña es: ", " "+contraseña, "success");
+    swal("La Contraseña Generada es: ", " "+contraseña, "success");
 }
 
 
@@ -142,11 +142,11 @@ function validarpass() {
     var contra = document.getElementById("nuevacontra1").value;
     var confcontra = document.getElementById("nuevacontra2").value;
     if (contra.length > 7 && confcontra.length > 7 && contra==confcontra) {
-        console.log("Contraseña Mayor a 7 Digitos");
+        console.log("mayor a 7 digitos");
         $("#actualizar").removeAttr("disabled");
         return true;
     } else {
-        console.log("Contraseña Menor a 8 Digitos");
+        console.log("menor a 8 digitos");
         $("#actualizar").attr("disabled","disabled");
         return false;
     }
