@@ -46,3 +46,4 @@ $row_cnt = $consultar->num_rows;
 	echo json_encode($data);
 
 	?>
+
